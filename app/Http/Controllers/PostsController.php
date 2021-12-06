@@ -9,12 +9,12 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('is_published', 0)->get();
-        dd($posts);
+        $posts = Post::where('is_published', 1)->get();
+        return view('posts/posts', compact('posts'));
     }
 
     public function create()
     {
-
+        return view('posts/create_post');
     }
 }
