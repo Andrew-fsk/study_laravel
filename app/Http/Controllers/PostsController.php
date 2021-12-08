@@ -2,29 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('is_published', 1)->get();
-
+        $posts = Post::all();
         return view('posts.index', compact('posts'));
     }
 
     public function create()
     {
-        return view('posts.create');
+        $categories = Category::all();
+        return view('posts.create', compact('categories'));
     }
 
     public function store()
     {
         $data = request()->validate([
-           'title' => 'string',
-           'content' => 'string',
-           'image' => 'string',
+            'title' => 'string',
+            'content' => 'string',
+            'image' => 'string',
+            'category_id' => '',
         ]);
 
         Post::create($data);
@@ -38,7 +41,8 @@ class PostsController extends Controller
 
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     public function update(Post $post)
@@ -47,6 +51,7 @@ class PostsController extends Controller
             'title' => 'string',
             'content' => 'string',
             'image' => 'string',
+            'category_id' => '',
         ]);
         $post->update($data);
         return redirect()->route('post.show', $post->id);
