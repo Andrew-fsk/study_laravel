@@ -6,6 +6,6 @@
     @endforeach
     <a href="{{ route('post.create') }}">Add new</a>
     <div>
-        {{ $posts->links() }}
+        {{ $posts->withQueryString()->links() }}
     </div>
 @endsection
