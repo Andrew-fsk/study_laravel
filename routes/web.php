@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Post'], function () {
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::get('/', 'IndexController')->name('admin.index');
     Route::group(['namespace' => 'Post'], function () {
         Route::get('/post', 'IndexController')->name('admin.post.index');
         Route::delete('/posts/{post}', 'DestroyController')->name('admin.post.delete');
