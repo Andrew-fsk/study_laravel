@@ -12,7 +12,8 @@ class EditController extends Controller
     public function __invoke(Post $post)
     {
         $categories = Category::all();
+        $all_posts = Post::all()->count();
         $tags = Tag::all();
-        return view('admin.post.edit', compact('post', 'categories', 'tags'));
+        return view('admin.post.edit', compact('post', 'categories', 'tags', 'all_posts'));
     }
 }

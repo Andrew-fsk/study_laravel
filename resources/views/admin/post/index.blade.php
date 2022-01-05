@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-5">
                                 <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing
-                                    1 to 10 of {{ $posts->total() }} posts
+                                    1 to {{ $posts->count() }} of {{ $posts->total() }} posts
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-7 d-flex justify-content-end">
