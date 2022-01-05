@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Post;
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -13,7 +13,6 @@ class EditController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-
-        return view('posts.edit', compact('post', 'categories', 'tags'));
+        return view('admin.post.edit', compact('post', 'categories', 'tags'));
     }
 }
