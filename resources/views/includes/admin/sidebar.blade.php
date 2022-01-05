@@ -4,7 +4,7 @@
             <i class="nav-icon fas fa-edit"></i>
             <p>
                 Posts
-                <span class="badge badge-info right">{{ isset($posts) ? $posts->total() : ''}}</span>
+                <span class="badge badge-info right">{{ $posts->total() }}</span>
             </p>
         </a>
     </li>

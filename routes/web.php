@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/index', 'HomeController@index')->name('home.index');
+
 Route::group(['namespace' => 'Post'], function () {
     Route::get('/posts', 'IndexController')->name('post.index');
     Route::get('/posts/{post}', 'ShowController')->name('post.show');
@@ -29,3 +31,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 //      Route::post('/posts', 'StoreController')->name('post.store');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
