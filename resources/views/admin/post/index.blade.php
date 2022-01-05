@@ -59,6 +59,7 @@
 
 
                                 </table>
+                                <a href="{{ route('admin.post.create') }}" class="btn mb-4 btn-success">Create new</a>
                             </div>
                         </div>
                         <div class="row">

@@ -27,9 +27,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
         Route::get('/post', 'IndexController')->name('admin.post.index');
         Route::delete('/posts/{post}', 'DestroyController')->name('admin.post.delete');
         Route::get('/posts/{post}/edit', 'EditController')->name('admin.post.edit');
-      Route::patch('/posts/{post}', 'UpdateController')->name('admin.post.update');
-//      Route::get('/posts/create', 'CreateController')->name('post.create');
-//      Route::post('/posts', 'StoreController')->name('post.store');
+        Route::patch('/posts/{post}', 'UpdateController')->name('admin.post.update');
+        Route::get('/posts/create', 'CreateController')->name('admin.post.create');
+        Route::post('/posts', 'StoreController')->name('admin.post.store');
     });
 });
 
