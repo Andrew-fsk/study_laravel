@@ -14,6 +14,11 @@
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="{{ route('post.index') }}">Home</a>
         </li>
+        @can('view', auth()->user())
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{ route('admin.post.index') }}">Admin posts</a>
+        </li>
+        @endcan
     </ul>
     @yield('content')
 </div>
